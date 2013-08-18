@@ -3,52 +3,82 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Getshitdone by kalasoo</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>getshitdone</title>
+    <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1>Getshitdone</h1>
-        <p>A todo list built with many new skills: Haml / LESS / Knockout / CoffeeScript</p>
-
-        <p class="view"><a href="https://github.com/kalasoo/getshitdone">View the Project on GitHub <small>kalasoo/getshitdone</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/kalasoo/getshitdone/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/kalasoo/getshitdone/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/kalasoo/getshitdone">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="a-todolist-to-practice-myself" class="anchor" href="#a-todolist-to-practice-myself"><span class="octicon octicon-link"></span></a>A todolist to practice myself</h1>
-
-<p>To learn and practice some new skills, I build this simple todolist with the following tools and libraries.</p>
-
-<h2>
-<a name="libraries" class="anchor" href="#libraries"><span class="octicon octicon-link"></span></a>Libraries</h2>
-
-<ul>
-<li>CoffeeScript</li>
-<li>Knockout.js</li>
-<li>LESS</li>
-<li>Haml</li>
-</ul>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/kalasoo">kalasoo</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+      <div class="pure-g-r">
+        <div class="pure-u-1">
+          <!-- Header -->
+          <header>
+            <h1>Get<span>shit</span>done</h1>
+            <h3>A simple static todo list -- kalasoo</h3>
+          </header>
+          <!-- Main -->
+          <div class="content">
+            <div class="pure-g-r">
+              <div class="pure-u-1-3">
+                <section>
+                  <h3>Add a new task.</h3>
+                  <form class="pure-form pure-form-stacked add-task-form">
+                   <fieldset>
+                    <div class="pure-g-r">
+                      <div class="pure-u-1">
+                        <input id="new-task" type="input" placeholder="Input a task to do..." data-bind="value: newTask">  
+                      </div>
+                      <div class="pure-u-1">
+                        <button type="submit" class="pure-button pure-button-primary" data-bind="click: addTask">Submit</button>
+                      </div>
+                    </div>
+                   </fieldset> 
+                  </form>
+                </section>
+              </div>
+              <div class="pure-u-1-3">
+                <section class="todo-list">
+                  <h3>Todo List:</h3>
+                  <ul class="task-list" data-bind="foreach: todo">
+                    <div class="pure-g-r">
+                      <li>
+                        <div class="pure-u-3-5">
+                          <span class="task-content" data-bind="text: content"></span>
+                        </div>
+                        <div class="pure-u-1-5"><span><a data-bind="click: $parent.deleteTask">DELETE</a></span></div>
+                        <div class="pure-u-1-5"><span><a data-bind="click: $parent.doneTask">DONE</a></span></div>
+                      </li>
+                    </div>
+                  </ul>
+                </section>
+              </div>
+              <div class="pure-u-1-3">
+                <section class="done-list transition-3">
+                  <h3>Done List:</h3>
+                  <ul class="task-list" data-bind="foreach: done">
+                    <div class="pure-g-r">
+                      <li class="done">
+                        <div class="pure-u-3-5">
+                          <span class="task-content" data-bind="text: content"></span>
+                        </div>
+                        <div class="pure-u-1-5"><span>REDO</span></div>
+                        <div class="pure-u-1-5"><span>CLEAR</span></div>
+                      </li>
+                    </div>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+          <!-- Footer -->
+          <footer>
+          </footer>
+        </div>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    <script src="scripts/knockout-2.3.0.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
