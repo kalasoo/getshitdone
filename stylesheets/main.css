@@ -1,0 +1,75 @@
+body {
+	font-family: 'Happy Monkey', cursive;
+}
+
+header {
+	min-height: 80px;
+	color: #333;
+	text-align: center;
+	border-bottom: 1px solid #eee;
+}
+
+header h1 {
+	color: #5eb95e;
+}
+
+header h1 span {
+	color: #dd514c;
+}
+
+header h3 {
+	font-weight: 300;
+	color: #ccc;
+}
+
+.content section {
+	padding: 1.3em;
+}
+
+.content section h3 {
+	margin-bottom: 0;
+	padding-bottom: 0.3em;
+}
+
+.task-list {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.task-list li {
+	margin: 0.5em 0;
+	padding-left: 0.5em;
+	border-left: 3px solid #dd514c;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.task-list li:hover {
+	background: #dd514c;
+	color: #fff;
+}
+
+.task-list li:active {
+	margin-top: 1.0em;
+}
+
+.task-list .done {
+	border-left-color: #5eb95e;
+}
+
+.task-list .done:hover {
+	background: #5eb95e;
+}
+
+.task-list .done .task-content {
+	text-decoration: line-through;
+}
+
+/* New Task Form*/
+#new-task {
+	width: 100%;
+	margin: 0.5em 0;
+}
