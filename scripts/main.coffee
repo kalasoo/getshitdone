@@ -1,11 +1,15 @@
 try
 	tasks = JSON.parse localStorage.getItem 'getshitdoneTasks' or
-		todo: []
-		done: []
+		todo: ['Something to do']
+		done: ['Something done']
+	if not tasks.todo.length and not tasks.done.length
+		tasks = 
+			todo: ['Something to do']
+			done: ['Something done']
 catch error
 	tasks = 
-		todo: ['Use Haml', 'Use LESS', 'Culture Session']
-		done: ['Account Setting', 'Learn CoffeeScript', 'Learn Knockout.js']
+		todo: ['Something to do']
+		done: ['Something done']
 
 class Task
 	constructor: (@content) ->
@@ -41,7 +45,6 @@ class TasksViewModel
 		@saveTasks()
 
 	saveTasks: () =>
-		console.log 'saveTasks'
 		tasks = 
 			todo: (task.content for task in @todo())
 			done: (task.content for task in @done())

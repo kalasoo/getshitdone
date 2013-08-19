@@ -5,14 +5,20 @@
 
   try {
     tasks = JSON.parse(localStorage.getItem('getshitdoneTasks' || {
-      todo: [],
-      done: []
+      todo: ['Something to do'],
+      done: ['Something done']
     }));
+    if (!tasks.todo.length && !tasks.done.length) {
+      tasks = {
+        todo: ['Something to do'],
+        done: ['Something done']
+      };
+    }
   } catch (_error) {
     error = _error;
     tasks = {
-      todo: ['Use Haml', 'Use LESS', 'Culture Session'],
-      done: ['Account Setting', 'Learn CoffeeScript', 'Learn Knockout.js']
+      todo: ['Something to do'],
+      done: ['Something done']
     };
   }
 
@@ -88,7 +94,6 @@
 
     TasksViewModel.prototype.saveTasks = function() {
       var task;
-      console.log('saveTasks');
       tasks = {
         todo: (function() {
           var _i, _len, _ref, _results;
