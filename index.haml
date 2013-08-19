@@ -1,0 +1,68 @@
+!!! 5
+%html
+	%head
+		%meta {:chartset => "utf-8"}
+		%meta {:http-equiv => "X-UA-Compatible", :content => "chrome=1"}
+		%link {:href => "http://fonts.googleapis.com/css?family=Happy+Monkey", :rel => "stylesheet", :type => "text/css"}
+		%link {:href => "http://yui.yahooapis.com/pure/0.2.1/pure-min.css", :rel => "stylesheet", :type => "text/css"}
+		%link {:href => "stylesheets/main-less.css", :rel => "stylesheet", :type => "text/css"}
+
+	%body
+		.wrapper
+			.pure-g-r
+				.pure-u-1
+					%header
+						%h1 
+							Get
+							%span shit
+							done
+						%h3 A simple static todo list -- kalasoo
+					.content
+						.pure-g-r
+							.pure-u-1-3
+								%section
+									%h3 Add a new task.
+									%form {:class => "pure-form pure-form-stacked add-task-form"}
+										%fieldset
+											.pure-g-r
+												.pure-u-1
+													%input {:id => "new-task", :type => "input", :placeholder => "Input a task to do...", data-bind="value: newTask"}
+												.pure-u-1
+													%button {:type => "submit", :class => "pure-button pure-button-primary", :data-bind => "click: addTask"}
+
+							.pure-u-1-3
+								%section {:class => "todo-list"}
+									%h3 Todo List:
+									%ul {:class => "task-list", :data-bind => "foreach: todo"}
+										.pure-g-r
+											%li
+												.pure-u-3-5
+													%span {:class => "task-content", :data-bind => "text.content"}
+												.pure-u-1-5
+													%span
+														%a {:data-bind => "click: $root.doneTask"} DONE
+												.pure-u-1-5
+													%span
+														%a {:data-bind => "click: $root.deleteTask"} DELETE
+
+							.pure-u-1-3
+								%section {:class => "done-list"}
+									%h3 Done List:
+									%ul {:class => "task-list", :data-bind => "foreach: done"}
+										.pure-g-r
+											%li
+												.pure-u-3-5
+													%span {:class => "task-content", :data-bind => "text.content"}
+												.pure-u-1-5
+													%span
+														%a {:data-bind => "click: $root.redoTask"} REDO
+												.pure-u-1-5
+													%span
+														%a {:data-bind => "click: $root.clearDoneTask"} CLEAR
+						%footer
+
+		%script {:src => "scripts/knockout-2.3.0.js"}
+		%script {:src => "scripts/main.js"}
+
+
+
