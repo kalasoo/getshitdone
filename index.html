@@ -46,8 +46,8 @@
                         <div class="pure-u-3-5">
                           <span class="task-content" data-bind="text: content"></span>
                         </div>
-                        <div class="pure-u-1-5"><span><a data-bind="click: $parent.deleteTask">DELETE</a></span></div>
-                        <div class="pure-u-1-5"><span><a data-bind="click: $parent.doneTask">DONE</a></span></div>
+                        <div class="pure-u-1-5"><span><a data-bind="click: $root.doneTask">DONE</a></span></div>
+                        <div class="pure-u-1-5"><span><a data-bind="click: $root.deleteTask">DELETE</a></span></div>
                       </li>
                     </div>
                   </ul>
@@ -62,8 +62,8 @@
                         <div class="pure-u-3-5">
                           <span class="task-content" data-bind="text: content"></span>
                         </div>
-                        <div class="pure-u-1-5"><span>REDO</span></div>
-                        <div class="pure-u-1-5"><span>CLEAR</span></div>
+                        <div class="pure-u-1-5"><span><a data-bind="click: $root.redoTask">REDO</a></span></div>
+                        <div class="pure-u-1-5"><span><a data-bind="click: $root.clearTask">CLEAR</a></span></div>
                       </li>
                     </div>
                   </ul>
