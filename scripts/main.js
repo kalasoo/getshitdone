@@ -64,9 +64,10 @@
     }
 
     TasksViewModel.prototype.addTask = function(task) {
-      if (this.newTask()) {
+      if (this.newTask() !== '') {
         this.todo.push(new Task(this.newTask()));
-        return this.saveTasks();
+        this.saveTasks();
+        return this.newTask('');
       } else {
         return alert('cannot be empty');
       }

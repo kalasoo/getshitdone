@@ -22,9 +22,10 @@ class TasksViewModel
 		@done = ko.observableArray (new Task content for content in tasks.done)
 
 	addTask: (task) =>
-		if @newTask() 
+		if @newTask() != ''
 			@todo.push new Task @newTask()
 			@saveTasks()
+			@newTask('')
 		else 
 			alert 'cannot be empty'
 
