@@ -24,7 +24,8 @@
 
   Task = (function() {
     function Task(content) {
-      this.content = content;
+      this.content = ko.observable(content);
+      this.editing = ko.observable(false);
     }
 
     return Task;
@@ -37,6 +38,7 @@
       this.clearDoneTask = __bind(this.clearDoneTask, this);
       this.redoTask = __bind(this.redoTask, this);
       this.doneTask = __bind(this.doneTask, this);
+      this.editTask = __bind(this.editTask, this);
       this.deleteTask = __bind(this.deleteTask, this);
       this.addTask = __bind(this.addTask, this);
       var content;
@@ -63,7 +65,7 @@
       })());
     }
 
-    TasksViewModel.prototype.addTask = function(task) {
+    TasksViewModel.prototype.addTask = function() {
       if (this.newTask() !== '') {
         this.todo.push(new Task(this.newTask()));
         this.saveTasks();
@@ -73,23 +75,30 @@
       }
     };
 
-    TasksViewModel.prototype.deleteTask = function(task) {
-      this.todo.remove(task);
+    TasksViewModel.prototype.deleteTask = function() {
+      this.todo.remove(this);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.doneTask = function(task) {
-      this.done.unshift((this.todo.remove(task))[0]);
+    TasksViewModel.prototype.editTask = function() {
+      this.editing(true);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.redoTask = function(task) {
-      this.todo.push((this.done.remove(task))[0]);
+    TasksViewModel.prototype.doneTask = function() {
+      this.todo.remove(this);
+      this.done.unshift(this);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.clearDoneTask = function(task) {
-      this.done.remove(task);
+    TasksViewModel.prototype.redoTask = function() {
+      this.done.remove(this);
+      this.todo.push(this);
+      return this.saveTasks();
+    };
+
+    TasksViewModel.prototype.clearDoneTask = function() {
+      this.done.remove(this);
       return this.saveTasks();
     };
 

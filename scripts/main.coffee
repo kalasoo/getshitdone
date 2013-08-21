@@ -12,8 +12,9 @@ catch error
 		done: ['Something done']
 
 class Task
-	constructor: (@content) ->
-
+	constructor: (content) ->
+		@content = ko.observable(content)
+		@editing = ko.observable(false)
 
 class TasksViewModel
 	constructor: (tasks) ->
@@ -21,7 +22,7 @@ class TasksViewModel
 		@todo = ko.observableArray (new Task content for content in tasks.todo)
 		@done = ko.observableArray (new Task content for content in tasks.done)
 
-	addTask: (task) =>
+	addTask: () =>
 		if @newTask() != ''
 			@todo.push new Task @newTask()
 			@saveTasks()
@@ -29,20 +30,26 @@ class TasksViewModel
 		else 
 			alert 'cannot be empty'
 
-	deleteTask: (task) =>
-		@todo.remove task
+	deleteTask: () =>
+		@todo.remove this
 		@saveTasks()
 
-	doneTask: (task) =>
-		@done.unshift (@todo.remove task)[0]
+	editTask: () =>
+		this.editing(true)
 		@saveTasks()
 
-	redoTask: (task) =>
-		@todo.push (@done.remove task)[0]
+	doneTask: () =>
+		@todo.remove this
+		@done.unshift this
 		@saveTasks()
 
-	clearDoneTask: (task) =>
-		@done.remove task
+	redoTask: () =>
+		@done.remove this
+		@todo.push this
+		@saveTasks()
+
+	clearDoneTask: () =>
+		@done.remove this
 		@saveTasks()
 
 	saveTasks: () =>
