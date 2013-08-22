@@ -30,32 +30,30 @@ class TasksViewModel
 		else 
 			alert 'cannot be empty'
 
-	deleteTask: () =>
-		@todo.remove this
+	deleteTask: (task) =>
+		@todo.remove task
 		@saveTasks()
 
-	editTask: () =>
-		this.editing(true)
+	editTask: (task) =>
+		task.editing(true)
 		@saveTasks()
 
-	doneTask: () =>
-		@todo.remove this
-		@done.unshift this
+	doneTask: (task) =>
+		@done.unshift (@todo.remove task)[0]
 		@saveTasks()
 
-	redoTask: () =>
-		@done.remove this
-		@todo.push this
+	redoTask: (task) =>
+		@todo.push (@done.remove task)[0]
 		@saveTasks()
 
-	clearDoneTask: () =>
-		@done.remove this
+	clearDoneTask: (task) =>
+		@done.remove task
 		@saveTasks()
 
 	saveTasks: () =>
 		tasks = 
-			todo: (task.content for task in @todo())
-			done: (task.content for task in @done())
+			todo: (task.content() for task in @todo())
+			done: (task.content() for task in @done())
 
 		localStorage.setItem('getshitdoneTasks', JSON.stringify tasks)
 

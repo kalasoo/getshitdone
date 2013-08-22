@@ -44,7 +44,7 @@
                     <div class="pure-g-r">
                       <li>
                         <div class="pure-u-3-5">
-                          <span class="task-content" data-bind="visible: !editing(), text: content, click: @root.editTask"></span>
+                          <span class="task-content" data-bind="visible: !editing(), text: content, click: $root.editTask"></span>
                           <input data-bind="visible: editing, value: content, hasFocus: editing" />
                         </div>
                         <div class="pure-u-1-5"><span><a data-bind="click: $root.doneTask">DONE</a></span></div>
@@ -78,11 +78,6 @@
         </div>
       </div>
     </div>
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
-    <div id="putTheWidgetHere"></div>
-    <script type="text/JavaScript">
-      SC.oEmbed("http://soundcloud.com/forss/sets/soulhack", {color: "ff0066"},  document.getElementById("putTheWidgetHere"));
-    </script>
     <script src="scripts/knockout-2.3.0.js"></script>
     <script src="scripts/main.js"></script>
   </body>

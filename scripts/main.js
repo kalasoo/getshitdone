@@ -75,30 +75,28 @@
       }
     };
 
-    TasksViewModel.prototype.deleteTask = function() {
-      this.todo.remove(this);
+    TasksViewModel.prototype.deleteTask = function(task) {
+      this.todo.remove(task);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.editTask = function() {
-      this.editing(true);
+    TasksViewModel.prototype.editTask = function(task) {
+      task.editing(true);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.doneTask = function() {
-      this.todo.remove(this);
-      this.done.unshift(this);
+    TasksViewModel.prototype.doneTask = function(task) {
+      this.done.unshift((this.todo.remove(task))[0]);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.redoTask = function() {
-      this.done.remove(this);
-      this.todo.push(this);
+    TasksViewModel.prototype.redoTask = function(task) {
+      this.todo.push((this.done.remove(task))[0]);
       return this.saveTasks();
     };
 
-    TasksViewModel.prototype.clearDoneTask = function() {
-      this.done.remove(this);
+    TasksViewModel.prototype.clearDoneTask = function(task) {
+      this.done.remove(task);
       return this.saveTasks();
     };
 

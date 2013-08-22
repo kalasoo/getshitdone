@@ -48,9 +48,6 @@ header h3 {
   background: #5eb95e;
   color: #fff;
 }
-.task-list li:active {
-  margin-top: 1.0em;
-}
 .task-list .done {
   border-left-color: #dd514c;
 }
