@@ -102,7 +102,6 @@
 
     TasksViewModel.prototype.saveTasks = function() {
       var task;
-      console.log(this.todo()[0].content());
       tasks = {
         todo: (function() {
           var _i, _len, _ref, _results;
