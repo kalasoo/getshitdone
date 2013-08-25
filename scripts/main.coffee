@@ -54,7 +54,7 @@ class TasksViewModel
 		tasks = 
 			todo: (task.content() for task in @todo())
 			done: (task.content() for task in @done())
-
+			
 		localStorage.setItem('getshitdoneTasks', JSON.stringify tasks)
 
 ko.applyBindings new TasksViewModel tasks

@@ -102,6 +102,7 @@
 
     TasksViewModel.prototype.saveTasks = function() {
       var task;
+      console.log(this.todo()[0].content());
       tasks = {
         todo: (function() {
           var _i, _len, _ref, _results;
@@ -109,7 +110,7 @@
           _results = [];
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             task = _ref[_i];
-            _results.push(task.content);
+            _results.push(task.content());
           }
           return _results;
         }).call(this),
@@ -119,7 +120,7 @@
           _results = [];
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             task = _ref[_i];
-            _results.push(task.content);
+            _results.push(task.content());
           }
           return _results;
         }).call(this)
