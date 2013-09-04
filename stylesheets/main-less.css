@@ -1,6 +1,10 @@
 body {
   font-family: 'Happy Monkey', cursive;
 }
+textarea,
+input {
+  outline: none;
+}
 header {
   min-height: 80px;
   text-align: center;
@@ -51,11 +55,17 @@ header h3 {
 .task-list .done {
   border-left-color: #dd514c;
 }
+.task-list .done .task-content {
+  text-decoration: line-through;
+}
 .task-list .done:hover {
   background: #dd514c;
 }
-.task-list .done .task-content {
-  text-decoration: line-through;
+.task-list .hehe {
+  background: #000;
+}
+.task-list .haha {
+  background: #333;
 }
 /* New Task Form*/
 #new-task {

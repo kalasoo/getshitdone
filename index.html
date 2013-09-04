@@ -27,7 +27,7 @@
                    <fieldset>
                     <div class="pure-g-r">
                       <div class="pure-u-1">
-                        <input id="new-task" type="input" placeholder="Input a task to do..." data-bind="value: newTask">  
+                        <input id="new-task" type="text" placeholder="Input a task to do..." data-bind="value: newTask">  
                       </div>
                       <div class="pure-u-1">
                         <button type="submit" class="pure-button pure-button-primary" data-bind="click: addTask">Submit</button>
@@ -45,7 +45,7 @@
                       <li>
                         <div class="pure-u-3-5">
                           <span class="task-content" data-bind="visible: !editing(), text: content, click: $root.editTask"></span>
-                          <input data-bind="visible: editing, value: content, hasFocus: editing" />
+                          <input type="text" data-bind="visible: editing, value: content, hasFocus: editing" />
                         </div>
                         <div class="pure-u-1-5"><span><a data-bind="click: $root.doneTask">DONE</a></span></div>
                         <div class="pure-u-1-5"><span><a data-bind="click: $root.deleteTask">DELETE</a></span></div>
@@ -59,7 +59,7 @@
                   <h3>Done List:</h3>
                   <ul class="task-list" data-bind="foreach: done">
                     <div class="pure-g-r">
-                      <li class="done">
+                      <li class="done" data-bind="css: {'hehe': true}, css: {'haha': true}">
                         <div class="pure-u-3-5">
                           <span class="task-content" data-bind="text: content"></span>
                         </div>
