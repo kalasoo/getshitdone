@@ -61,12 +61,6 @@ header h3 {
 .task-list .done:hover {
   background: #dd514c;
 }
-.task-list .hehe {
-  background: #000;
-}
-.task-list .haha {
-  background: #333;
-}
 /* New Task Form*/
 #new-task {
   width: 100%;
